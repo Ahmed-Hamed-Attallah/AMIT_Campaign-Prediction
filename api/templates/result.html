@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="page">
+    <div class="card result-container">
+        <div class="header">
+            <h1>📈 Prediction Result</h1>
+        </div>
+
+        {% if error %}
+            <div class="error">
+                <p>{{ error }}</p>
+            </div>
+        {% else %}
+            <div class="result-box">
+                <p class="prediction">{{ result }}</p>
+                <p class="confidence">
+                    Confidence: {{ "%.2f"|format(confidence) }}%
+                </p>
+            </div>
+        {% endif %}
+
+        <a href="/" class="btn-primary" style="text-decoration:none; display:inline-block; margin-top:10px;">
+            ← New Prediction
+        </a>
+    </div>
+</div>
+
+</body>
+</html>
