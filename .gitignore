@@ -1,2 +1,5 @@
 model/StackModel.joblib
 model/LR_Model.pkl
+.vscode
+.ipynb_checkpoints
+.devcontainer
