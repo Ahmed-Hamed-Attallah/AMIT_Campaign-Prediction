@@ -2,12 +2,31 @@ from flask import Flask, request, render_template
 import joblib
 import pandas as pd
 import numpy as np
+import py7zr
+import os
 from preprocess import preprocess_input  # your custom preprocessing function
 
 app = Flask(__name__)
 
-# Load the trained model
-model = joblib.load('model/StackModel.joblib')
+
+
+
+BASE_DIR = os.path.dirname(__file__)
+MODEL_DIR = os.path.join(BASE_DIR, "..", "model")
+
+ARCHIVE_PATH = os.path.join(MODEL_DIR, "StackModel.7z")
+MODEL_PATH = os.path.join(MODEL_DIR, "StackModel.joblib")
+
+# 🔄 Extract only if model not present
+if not os.path.exists(MODEL_PATH):
+    print("🔄 Extracting model...")
+    with py7zr.SevenZipFile(ARCHIVE_PATH, mode="r") as z:
+        z.extractall(path=MODEL_DIR)
+    print("✅ Extraction complete")
+
+# ✅ Load model
+model = joblib.load(MODEL_PATH)
+print("✅ Model loaded")
 
 # Define the original column names (as they appear in the form)
 original_columns = [
