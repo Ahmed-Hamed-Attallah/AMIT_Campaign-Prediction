@@ -8,6 +8,8 @@ This project analyzes the **direct marketing campaigns of a Portuguese banking i
 
 The main challenge lies in predicting the likelihood of a client subscribing to a term deposit based on their personal, financial, and socio-economic characteristics, as well as details of the marketing campaign.
 
+__[Show Notebook Here](https://colab.research.google.com/drive/1dSIKJfi0ZZ3J46oqwmtLLUrXpMG6UCvS)__
+
 ---
 
 ## 🎯 Project Objective
